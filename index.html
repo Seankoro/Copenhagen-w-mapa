@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copenhagen Itinerary — March 18–23, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4EFE6;
+    --card: #FFFDF8;
+    --navy: #1A2B45;
+    --blue: #2E6DA4;
+    --blue-light: #EBF3FB;
+    --red: #B83232;
+    --amber: #C8793A;
+    --amber-light: #FDF3E7;
+    --green: #3A7A5A;
+    --green-light: #E8F5EE;
+    --grey: #6B7280;
+    --grey-light: #F0EEE9;
+    --gold: #B8973A;
+    --warn-bg: #FFF5E0;
+    --warn-border: #C8793A;
+    --border: #E0D9CE;
+    --tag-meal: #E8F0FA;
+    --tag-meal-text: #2E6DA4;
+    --tag-sight: #E8F5EE;
+    --tag-sight-text: #3A7A5A;
+    --tag-travel: #F3EFFA;
+    --tag-travel-text: #6B4FA0;
+    --tag-rest: #FDF3E7;
+    --tag-rest-text: #C8793A;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--navy);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    padding: 48px 40px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 30%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .header h1 span {
+    color: #B8CDE8;
+  }
+  .header-dates {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 400;
+  }
+  .header-legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+  }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── NOTICES ── */
+  .notices {
+    padding: 28px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .notice {
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .notice-warn {
+    background: var(--warn-bg);
+    border: 1px solid rgba(200,121,58,0.3);
+  }
+  .notice-info {
+    background: var(--blue-light);
+    border: 1px solid rgba(46,109,164,0.2);
+  }
+  .notice-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .notice strong { font-weight: 600; }
+
+  /* ── MAIN ── */
+  .content {
+    padding: 0 40px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* ── DAY CARD ── */
+  .day-card {
+    background: var(--card);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .day-header {
+    padding: 20px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .day-header-left { display: flex; flex-direction: column; gap: 3px; }
+  .day-number {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+  .day-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .day-date {
+    font-size: 13px;
+    color: var(--grey);
+    font-weight: 400;
+    margin-top: 1px;
+  }
+  .day-badge {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge-easy { background: var(--green-light); color: var(--green); }
+  .badge-full { background: #F0EAFA; color: #6B4FA0; }
+  .badge-long { background: #FDE8E8; color: var(--red); }
+  .badge-last { background: var(--amber-light); color: var(--amber); }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    padding: 8px 0 16px;
+  }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 88px 2px 1fr;
+    column-gap: 0;
+    align-items: start;
+    min-height: 52px;
+  }
+  .tl-time {
+    text-align: right;
+    padding: 12px 20px 0 0;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--grey);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .tl-spine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .tl-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 14px;
+    z-index: 1;
+    position: relative;
+  }
+  .tl-line {
+    width: 2px;
+    flex: 1;
+    background: var(--border);
+    margin-top: 0;
+  }
+  .tl-item:last-child .tl-line { display: none; }
+
+  .tl-body {
+    padding: 10px 28px 10px 16px;
+  }
+  .tl-title {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+  .tl-desc {
+    font-size: 13px;
+    color: var(--grey);
+    line-height: 1.55;
+    font-weight: 400;
+  }
+  .tl-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 7px;
+  }
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 12px;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+  }
+  .tag-meal { background: var(--tag-meal); color: var(--tag-meal-text); }
+  .tag-sight { background: var(--tag-sight); color: var(--tag-sight-text); }
+  .tag-travel { background: var(--tag-travel); color: var(--tag-travel-text); }
+  .tag-rest { background: var(--tag-rest); color: var(--tag-rest-text); }
+  .tag-tip {
+    background: #FFFBE6;
+    color: #856404;
+    border: 1px dashed #C8973A;
+  }
+
+  /* dot colors */
+  .dot-meal { background: var(--blue); }
+  .dot-sight { background: var(--green); }
+  .dot-travel { background: #6B4FA0; }
+  .dot-rest { background: var(--amber); }
+  .dot-warn { background: var(--red); }
+
+  /* Line colors */
+  .line-meal { background: rgba(46,109,164,0.25); }
+  .line-sight { background: rgba(58,122,90,0.25); }
+  .line-travel { background: rgba(107,79,160,0.25); }
+  .line-rest { background: rgba(200,121,58,0.25); }
+
+  /* ── INLINE WARNING ── */
+  .tl-warn {
+    background: #FFF5E0;
+    border-radius: 8px;
+    padding: 10px 13px;
+    font-size: 12.5px;
+    color: #7A4800;
+    margin-top: 6px;
+    line-height: 1.5;
+    border-left: 3px solid var(--amber);
+  }
+
+  /* ── FOOTER NOTES ── */
+  .day-footer {
+    background: var(--grey-light);
+    padding: 14px 28px;
+    font-size: 12.5px;
+    color: var(--grey);
+    line-height: 1.6;
+    border-top: 1px solid var(--border);
+  }
+  .day-footer strong { color: var(--navy); font-weight: 600; }
+
+  /* ── TIPS SECTION ── */
+  .tips-section {
+    background: var(--card);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    padding: 24px 28px;
+  }
+  .tips-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--navy);
+  }
+  .tips-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .tip-item {
+    background: var(--bg);
+    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+  }
+  .tip-item h4 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--navy);
+    display: flex;
+    gap: 7px;
+    align-items: center;
+  }
+  .tip-item p {
+    font-size: 12.5px;
+    color: var(--grey);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 680px) {
+    .header { padding: 32px 20px 28px; }
+    .header h1 { font-size: 30px; }
+    .notices, .content { padding-left: 16px; padding-right: 16px; }
+    .day-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .tips-grid { grid-template-columns: 1fr; }
+    .tl-time { font-size: 11px; padding: 12px 12px 0 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-eyebrow">Family Visit · Travel Itinerary</div>
+  <h1>Copenhagen<br><span>March 18 – 23, 2026</span></h1>
+  <div class="header-dates">Arrival: Tue 18 Mar · Departure: Mon 23 Mar (morning) · 5 full days</div>
+  <div class="header-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#3A7A5A"></div> Sightseeing</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#2E6DA4"></div> Food & Meals</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#6B4FA0"></div> Transport</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#C8793A"></div> Rest / Free Time</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#B83232"></div> ⚠ Heads Up</div>
+  </div>
+</div>
+
+<!-- NOTICES -->
+<div class="notices">
+  <div class="notice notice-info">
+    <div class="notice-icon">📍</div>
+    <div><strong>Your parents:</strong> CitizenM Copenhagen, H.C. Andersens Blvd 12 — right on Rådhuspladsen, city center. Nearest metro: <strong>M3 Rådhuspladsen</strong> (2 min walk) or walk 8 min to København H. Almost everything in the itinerary is walkable or one stop from their hotel. &nbsp;|&nbsp; <strong>You:</strong> Øresundskollegiet, Dalslandsgade 8, Amager. Nearest metro: <strong>DR Byen (M1)</strong> ~12 min walk. From there → København H is 3 stops (~6 min) → then 8 min walk to CitizenM. Total door-to-door: <strong>~25–30 min.</strong></div>
+  </div>
+  <div class="notice notice-info">
+    <div class="notice-icon">🚇</div>
+    <div><strong>Days 1 & 2 — Metro Tutorial Plan:</strong> You'll travel from Øresundskollegiet to CitizenM each morning to meet your parents and walk them through using the metro/bus. By Day 4 they'll be navigating independently. Key things to teach: buying tickets on the DSB/DOT app, tapping in/out, the M3 ring line (most useful for them), and how to use Rejseplanen for routing.</div>
+  </div>
+  <div class="notice notice-info">
+    <div class="notice-icon">🦶</div>
+    <div><strong>Pacing for Mum:</strong> The itinerary is designed with regular seated breaks and café stops every 1–1.5 hours of activity. Attractions where stairs or long walks are involved are flagged with an ♿ note — those are optional or have workarounds. Copenhagen is largely flat and has plentiful benches. Cobblestones appear in Nyhavn and some older streets — flat shoes with grip are strongly recommended.</div>
+  </div>
+  <div class="notice notice-warn">
+    <div class="notice-icon">🎡</div>
+    <div><strong>Tivoli Gardens is CLOSED during your visit.</strong> It opens for its Easter/Summer season on March 27, 2026 — four days after your parents leave. You won't be able to include this. Worth knowing so you can skip it from your planning.</div>
+  </div>
+  <div class="notice notice-warn">
+    <div class="notice-icon">🧱</div>
+    <div><strong>LEGO House day (Day 3) is a long one — roughly 12.5 hours door to door.</strong> Trains and LEGO House are all booked. The main thing to be strict about is leaving LEGO House by 4:00pm to make the 5:06pm train from Vejle.</div>
+  </div>
+  <div class="notice notice-info">
+    <div class="notice-icon">🌡️</div>
+    <div><strong>March weather:</strong> Expect ~5–9°C, some rain, and sunset around 6:15pm. Bring warm layers and a waterproof jacket. Canal boat tours are covered and heated — great for this time of year.</div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- ═══════ DAY 1 ═══════ -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-header-left">
+        <div class="day-number">Day 1 · Wednesday</div>
+        <div class="day-title">Arrival + Nyhavn + Canal Tour</div>
+        <div class="day-date">March 18, 2026</div>
+      </div>
+      <div class="day-badge badge-easy">🌿 Easy Day</div>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">7:25 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-travel"></div><div class="tl-line line-travel"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">✈️ Parents Arrive — Copenhagen Airport (CPH)</div>
+          <div class="tl-desc"><strong>Recommend taxi for today only</strong> — DKK 300–350 direct to CitizenM (they're tired, luggage-laden, and don't know the city yet). The metro tutorial happens later today once everyone's refreshed. You'll travel from Øresundskollegiet separately: <strong>walk ~12 min to DR Byen → M1 toward Vanløse → 3 stops to København H → 8 min walk to CitizenM.</strong> Leave ØK by ~8:00am to arrive at the hotel around 8:30–8:45am.</div>
+          <div class="tl-tags"><span class="tag tag-travel">Taxi from Airport</span><span class="tag tag-travel">You: ØK → DR Byen M1 → KBH H → CitizenM</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">8:30 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line line-meal"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🥐 Breakfast — Lagkagehuset Bakery (near CitizenM)</div>
+          <div class="tl-desc">Meet parents at CitizenM lobby and head to Lagkagehuset together — there's a branch a short walk away. Order kanelsnegle (cinnamon roll), fresh bread, and coffee. <strong>Sit-down, no rush. ~1 hour.</strong> While you eat, walk them through the <strong>Rejseplanen app</strong> (route planner) and show them how to buy metro tickets on the DOT Mobilbillet app or at the machines. This is Day 1 of metro school!</div>
+          <div class="tl-tags"><span class="tag tag-meal">Breakfast</span><span class="tag tag-tip">💡 ~DKK 60–90/person · Seated café ✓</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">9:30 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-rest"></div><div class="tl-line line-rest"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🏨 Check-in / Freshen Up</div>
+          <div class="tl-desc">Drop bags at hotel. If room isn't ready yet, most hotels will store luggage. Take a moment to settle in. <strong>~1 hour.</strong></div>
+          <div class="tl-tags"><span class="tag tag-rest">Rest</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">10:30 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🚶 Strøget + Round Tower (Rundetårn)</div>
+          <div class="tl-desc">Walk from Rådhuspladsen along Strøget toward the city. About halfway, turn off to visit the <strong>Round Tower</strong> — built 1637–1642, it's Copenhagen's oldest functioning observatory. What makes it special: <strong>no stairs, only a wide spiral equestrian ramp</strong> all the way to the top (~35m). Very gentle on the legs — ideal for mum. Views over the old city rooftops are excellent. Back on Strøget, continue to Kongens Nytorv. <strong>~1.5–2 hours total.</strong></div>
+          <div class="tl-warn">⚠️ <strong>2026 restoration notice:</strong> The observatory dome and telescope are closed for restoration throughout 2026. The viewing platform at the top remains open — you still get the full panoramic views. Buy tickets on the door — no advance purchase available.</div>
+          <div class="tl-tags"><span class="tag tag-sight">Round Tower · Strøget</span><span class="tag tag-tip">💡 DKK 60/adult · Ramp only (no stairs) ✓ · Pay at door</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">12:15 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line line-meal"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🥗 Lunch — Torvehallerne Food Market</div>
+          <div class="tl-desc">Copenhagen's beloved covered food market. Two glass halls with 60+ stalls — pick smørrebrød (open-faced sandwiches), fresh fish, pastries, or international cuisine. Great for groups as everyone can pick something different. <strong>~1 hour.</strong></div>
+          <div class="tl-tags"><span class="tag tag-meal">Lunch</span><span class="tag tag-tip">💡 ~DKK 100–160/person</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">1:30 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🌈 Nyhavn — Colorful Canal District</div>
+          <div class="tl-desc">The most iconic spot in Copenhagen. Stroll the 300m waterfront, admire the pastel townhouses, spot the tall ships. Hans Christian Andersen's former homes are at no. 18, 20, and 67. Plenty of outdoor seats and benches along the water. <strong>Short and manageable for mum — only ~300m end-to-end. ~45 min.</strong></div>
+          <div class="tl-warn">⚠️ The quayside has cobblestones — wear flat, grippy shoes. The paved path on the inner side of the canal is smoother if mum prefers.</div>
+          <div class="tl-tags"><span class="tag tag-sight">Nyhavn</span><span class="tag tag-tip">💡 Free · Benches along the water ✓</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">2:15 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">⛵ Canal Boat Tour (departing from Nyhavn)</div>
+          <div class="tl-desc">A scenic 1-hour loop through Copenhagen's canals past the Opera House, Christiansborg, Freetown Christiania, the Black Diamond Library, and back. Boats are fully covered and heated in March — perfect for cold weather. Book at the Nyhavn dock or online with Stromma or Netto-Bådene. <strong>~1 hour.</strong></div>
+          <div class="tl-tags"><span class="tag tag-sight">Canal Tour</span><span class="tag tag-tip">💡 DKK 120/person · Book in advance recommended</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">3:15 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🏛️ Amalienborg Palace — Quick Stroll</div>
+          <div class="tl-desc">10-minute walk from Nyhavn. See the four Rococo palaces surrounding the octagonal courtyard, and the bronze statue of King Frederick V. Free to walk around the square. The Marble Church (Frederiks Kirken) dome is visible from here — worth a photo. <strong>~30 min.</strong></div>
+          <div class="tl-tags"><span class="tag tag-sight">Sightseeing</span><span class="tag tag-tip">💡 Free exterior</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">4:00 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-rest"></div><div class="tl-line line-rest"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">☕ Rest & Afternoon Tea / Coffee</div>
+          <div class="tl-desc">Find a cozy café (hygge!) near the hotel. Copenhagen has fantastic coffee culture. Decompress after a long travel day. <strong>~1.5 hours.</strong></div>
+          <div class="tl-tags"><span class="tag tag-rest">Rest</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">7:00 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🍽️ Dinner — Restaurant Skindbuksen or Restaurant Karla</div>
+          <div class="tl-desc">Skindbuksen is one of Copenhagen's oldest restaurants (1728!) — classic Danish dishes in a warm, historic setting. Alternatively, Restaurant Karla in Frederiksberg is a French-Danish bistro with excellent value. Both work well for a relaxed first evening. <strong>~1.5 hours.</strong></div>
+          <div class="tl-tags"><span class="tag tag-meal">Dinner</span><span class="tag tag-tip">💡 Book ahead · ~DKK 200–350/person</span></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="day-footer"><strong>Day 1 tip:</strong> Keep it easy — this day is the gentlest on purpose. The canal tour does most of the sightseeing heavy lifting while everyone sits. CitizenM is right on Rådhuspladsen so mum never has to walk far to rest. Use today to establish the routine: transit app on their phones, how to tap in, and where the nearest M3 stop is from the hotel.</div>
+  </div>
+
+
+  <!-- ═══════ DAY 2 ═══════ -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-header-left">
+        <div class="day-number">Day 2 · Thursday</div>
+        <div class="day-title">Royal Copenhagen</div>
+        <div class="day-date">March 19, 2026</div>
+      </div>
+      <div class="day-badge badge-full">👑 Royal Day</div>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">8:00 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-travel"></div><div class="tl-line line-travel"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🚇 You: Øresundskollegiet → CitizenM (~30 min)</div>
+          <div class="tl-desc">Walk to DR Byen metro (M1, ~12 min) → 3 stops to København H → 8 min walk to CitizenM. Arrive at the hotel by ~8:30am to have breakfast with parents.</div>
+          <div class="tl-tags"><span class="tag tag-travel">ØK → DR Byen M1 → KBH H → CitizenM</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">8:30 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line line-meal"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🥐 Breakfast — Hotel or Nearby Bakery</div>
+          <div class="tl-desc">Start the day well. Try Coffee Collective for exceptional specialty coffee, or Meyers Bageri for a hearty Danish breakfast. Both are a short metro ride from CitizenM. <strong>Today's metro practice run: walk to M3 Rådhuspladsen → one stop to København H → then Nørreport on M1/M2.</strong> Let your parents tap in and out themselves while you guide. <strong>~45 min breakfast.</strong></div>
+          <div class="tl-tags"><span class="tag tag-meal">Breakfast</span><span class="tag tag-travel">Metro Practice Run ✓</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">9:30 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-travel"></div><div class="tl-line line-travel"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🚇 Metro to Nørreport — Parents' First Solo Tap</div>
+          <div class="tl-desc">From M3 Rådhuspladsen → Kongens Nytorv (1 stop) → transfer to M1/M2 → Nørreport. Let them tap in/out independently with you supervising. Nørreport is one of the busiest interchanges — once they're comfortable here, they can get almost anywhere in the city. <strong>~10 min journey.</strong></div>
+          <div class="tl-tags"><span class="tag tag-travel">Metro M3 → M1/M2 · ~10 min</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">9:45 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🌿 King's Garden (Kongens Have) — Morning Walk</div>
+          <div class="tl-desc">Denmark's oldest royal garden, dating to 1606. Peaceful, flat, and beautiful — ideal for mum. Gravel and paved paths throughout, plenty of benches. A short 15–20 min stroll before the castle opens. In March, early spring flowers may be starting to bloom. <strong>Flat and bench-friendly throughout. ~20 min.</strong></div>
+          <div class="tl-tags"><span class="tag tag-sight">Gardens</span><span class="tag tag-tip">💡 Free · Flat paths · Benches throughout ✓</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">10:00 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🏰 Rosenborg Castle — Crown Jewels & Royal Treasures</div>
+          <div class="tl-desc">One of Copenhagen's finest attractions. Built by King Christian IV in 1606 — 24 royal rooms across 3 floors, plus the spectacular Crown Jewels in the basement treasury. Self-guided with leaflets in multiple languages. <strong>~1h45min — plan to start heading out at 11:45am to catch the Guard march.</strong></div>
+          <div class="tl-warn">♿ The castle has multiple floors connected by stairs — no lift. Mum can still see the ground floor rooms and the Crown Jewels (basement level) which are the highlights. Suggest taking it slow and using the castle garden café as a rest point midway.</div>
+          <div class="tl-tags"><span class="tag tag-sight">Castle</span><span class="tag tag-tip">💡 DKK 140/adult · kongernessamling.dk</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">12:00 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">💂 Changing of the Guard — Amalienborg Palace</div>
+          <div class="tl-desc">The Royal Guard marches from Rosenborg every day at ~11:30am through the city streets, arriving at Amalienborg Palace at exactly noon. You can watch the full parade by starting at Rosenborg at 11:45am and walking along the route, or simply arrive at Amalienborg by 11:50am for a good spot. <strong>Free. ~30 min.</strong></div>
+          <div class="tl-tags"><span class="tag tag-sight">Royal Guard</span><span class="tag tag-tip">💡 Arrive by 11:50am for a good view · Daily at 12:00pm</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">12:30 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line line-meal"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🥪 Lunch — Smørrebrød near Amalienborg</div>
+          <div class="tl-desc">Try traditional Danish open-faced sandwiches (smørrebrød) at a nearby lunch restaurant. <strong>Hallernes Smørrebrød</strong> is excellent and a short walk from Amalienborg. Or grab a sit-down lunch at one of the cafes on Bredgade. <strong>~1 hour.</strong></div>
+          <div class="tl-tags"><span class="tag tag-meal">Lunch</span><span class="tag tag-tip">💡 ~DKK 120–180/person</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">1:45 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">⛺ Kastellet — Copenhagen's Star-Shaped Fortress</div>
+          <div class="tl-desc">A lovely 15-minute walk north along Langelinie Promenade from Amalienborg. Kastellet is one of the best-preserved Renaissance star-shaped fortresses in Northern Europe — built in 1626 and still an active military base today. Walk the flat grass ramparts above the moat canals, spot the old windmill and the small garrison church, and watch locals walking dogs and reading on the lawns. A genuine hidden gem: peaceful, photogenic, and historically rich without a single queue. <strong>Flat throughout — ideal for mum. Excellent benches along the ramparts. ~45 min.</strong></div>
+          <div class="tl-tags"><span class="tag tag-sight">Fortress · History</span><span class="tag tag-tip">💡 Free · Flat grass ramparts · Benches throughout ✓ · Open daily</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">3:00 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">⛪ Christianshavn + Church of Our Saviour (Vor Frelsers Kirke)</div>
+          <div class="tl-desc">Cross to charming Christianshavn and head straight to the <strong>Church of Our Saviour</strong> — a magnificent Baroque church built in 1752, with one of Copenhagen's most beautiful interiors: a grand marble altarpiece, intricate carved pews, and a monumental pipe organ. For Catholic visitors the church itself is deeply worth seeing at ground level. The famous exterior spiral staircase winds 400 steps around the golden spire — the final 150 or so are <em>outside</em> on the tower exterior, exposed to wind and weather. <strong>Take it at your own pace — there are rest points on the way up, and the views at the top are spectacular.</strong> <strong>~1.5 hours.</strong></div>
+          <div class="tl-tags"><span class="tag tag-sight">Baroque Church · Tower</span><span class="tag tag-tip">💡 Church interior: FREE · Tower: DKK 50 · 400 steps, rest points en route · Not suitable in heavy wind/rain</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">5:00 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-rest"></div><div class="tl-line line-rest"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🏨 Return to Hotel — Rest</div>
+          <div class="tl-desc">Feet will be tired — this has been a long walking day. <strong>~2 hours rest.</strong> A good time for parents to practice navigating home on their own using the Rejseplanen app from Christianshavn → M1 → Kongens Nytorv → M3 → Rådhuspladsen.</div>
+          <div class="tl-tags"><span class="tag tag-rest">Rest</span><span class="tag tag-travel">Parents navigate home independently ✓</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">7:30 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🍽️ Dinner — Warpigs Brewpub (Vesterbro)</div>
+          <div class="tl-desc">American BBQ meets Danish craft beer in a huge, lively Meatpacking District venue. Fantastic brisket, ribs and pulled pork. Casual, no reservations needed — just walk in. A fun, low-key way to end a long day of sightseeing. <strong>~1.5 hours.</strong></div>
+          <div class="tl-tags"><span class="tag tag-meal">Dinner</span><span class="tag tag-tip">💡 ~DKK 250/person · No reservation needed</span></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="day-footer"><strong>Day 2 tip:</strong> Two highlights anchor this day — the <strong>Guard ceremony at 12pm</strong> (non-negotiable, plan everything around it) and the <strong>Church of Our Saviour</strong> in the afternoon. The church interior is beautiful in its own right for Catholic visitors — you don't have to climb to make the visit worthwhile. Kastellet is a peaceful, crowd-free gem that most tourists skip — your parents will have it largely to themselves. By tonight, parents should be navigating the metro home independently. If anyone fancies a browse, <strong>Strøget</strong> passes directly through the morning route — a good opportunity to pick up a souvenir without dedicating a separate slot.</div>
+  </div>
+
+
+  <!-- ═══════ DAY 3 ═══════ -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-header-left">
+        <div class="day-number">Day 3 · Friday</div>
+        <div class="day-title">LEGO House Day Trip — Billund</div>
+        <div class="day-date">March 20, 2026</div>
+      </div>
+      <div class="day-badge badge-long">⚠️ Long Day ~12.5hrs</div>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">6:30 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-rest"></div><div class="tl-line line-rest"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">⏰ Early Start — Grab Breakfast on the Go</div>
+          <div class="tl-desc">No time for a sit-down this morning. Grab something quick — a pastry from a bakery near CitizenM, a 7-Eleven at the station, or pack snacks the night before. <strong>Parents:</strong> CitizenM → 8-min walk to København H (Copenhagen Central). Aim to be at the station by 7:40am. <strong>You:</strong> Leave ØK by ~7:00am → DR Byen M1 → København H, arriving ~7:30am. Meet at the main hall. <strong>~30 min.</strong></div>
+          <div class="tl-tags"><span class="tag tag-meal">Breakfast (grab &amp; go)</span><span class="tag tag-travel">Meet at Copenhagen Central</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">7:52 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-travel"></div><div class="tl-line line-travel"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🚆 Train: Copenhagen Central → Vejle</div>
+          <div class="tl-desc">DSB direct — already booked. ✅ Comfortable 2-hour journey through the Danish countryside. No food service on board — bring snacks and water. Arrives Vejle at <strong>9:52 AM.</strong></div>
+          <div class="tl-tags"><span class="tag tag-travel">Train · Departs 7:52 · Arrives Vejle 9:52 · BOOKED ✅</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">10:00 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-travel"></div><div class="tl-line line-travel"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🚌 Bus 43: Vejle Station → Billund Center</div>
+          <div class="tl-desc">Bus 43 departs from right outside Vejle Station — aim for the ~10:00am departure, which gets you to Billund Center (LEGO House stop) by approximately <strong>10:45am</strong>. Runs roughly every 30 minutes. Buy ticket on board or via Rejseplanen app. A short walk from the bus stop to LEGO House gives you a comfortable 15-min buffer before your entry slot. <strong>~45 min.</strong></div>
+          <div class="tl-tags"><span class="tag tag-travel">Bus 43 · ~45 min · ~DKK 30/person</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">11:00 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🧱 LEGO House — Home of the Brick</div>
+          <div class="tl-desc">The only LEGO House in the world. 25 million bricks across colour-coded zones — blue for stories, green for nature builds, red for social play, yellow for creativity — plus a LEGO history museum in the basement, a spectacular LEGO waterfall centrepiece, and live brick-moulding demos. Build, explore, and play at your own pace. Genuinely delightful for all ages. <strong>Entry slot 11:00–11:30am. ~1.15 hours before lunch.</strong></div>
+          <div class="tl-tags"><span class="tag tag-sight">LEGO House</span><span class="tag tag-tip">💡 Entry slot 11:00–11:30am · BOOKED ✅</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">12:15 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line line-meal"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🍽️ Lunch — Mini Chef Restaurant (inside LEGO House)</div>
+          <div class="tl-desc">The standout dining experience at LEGO House — design your meal on a tablet and robots deliver the food via a miniature train system. A genuinely fun, memorable lunch. Reservation already confirmed. <strong>~1 hour.</strong></div>
+          <div class="tl-tags"><span class="tag tag-meal">Lunch · Mini Chef</span><span class="tag tag-tip">💡 12:15pm · BOOKED ✅ · ~DKK 150–250/person</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">1:15 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🧱 Back to LEGO House — Afternoon Explore</div>
+          <div class="tl-desc">A full ~2h 45min to explore everything you didn't get to in the morning. Revisit favourite zones, try the builds you skipped, or just sit and watch the LEGO waterfall. Plenty of seating throughout — easy for mum to rest between zones. Leave by <strong>4:00pm</strong> to make the bus. <strong>~2.75 hours.</strong></div>
+          <div class="tl-tags"><span class="tag tag-sight">LEGO House</span><span class="tag tag-tip">💡 Leave by 4:00pm sharp for bus ✓</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">4:00 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-travel"></div><div class="tl-line line-travel"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🚌 Bus 43: Billund → Vejle Station</div>
+          <div class="tl-desc">Catch the ~4:00pm Bus 43 from Billund Center back to Vejle Station — arrives approximately <strong>4:45pm</strong>, giving a comfortable 20-min buffer before the train. Check exact times on Rejseplanen the morning of. <strong>~45 min.</strong></div>
+          <div class="tl-warn">⚠️ Bus 43 runs roughly every 30 min — missing this one means catching the 4:30pm bus, which arrives at ~5:15pm and cuts it too fine for the 5:06pm train. Leave LEGO House by 4:00pm.</div>
+          <div class="tl-tags"><span class="tag tag-travel">Bus 43 · ~45 min · Depart 4:00pm</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">5:06 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-travel"></div><div class="tl-line line-travel"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🚆 Train: Vejle → Copenhagen Central</div>
+          <div class="tl-desc">Already booked. ✅ ~2 hours back through Jutland. A good time to put your feet up, nap, and decompress. Arrives Copenhagen Central at approximately <strong>7:06pm.</strong></div>
+          <div class="tl-tags"><span class="tag tag-travel">Train · Departs Vejle 5:06 · Arrives CPH ~7:06 · BOOKED ✅</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">7:15 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-rest"></div><div class="tl-line line-rest"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🏨 Back in Copenhagen — Rest & Freshen Up</div>
+          <div class="tl-desc">Parents: 8-min walk from Copenhagen Central to CitizenM. You: M1 from København H → DR Byen. Everyone will be ready to sit down properly — take ~45 min to freshen up before dinner.</div>
+          <div class="tl-tags"><span class="tag tag-rest">Rest</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">8:00 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🍔 Dinner — Gasoline Grill or Takeaway</div>
+          <div class="tl-desc">After a long day, keep it easy. <strong>Gasoline Grill</strong> is a Copenhagen institution — legendary smash burgers from a repurposed old gas station, ~DKK 100–150. Quick, no reservation, genuinely excellent, and there are multiple locations near CitizenM. Or grab takeaway and eat at the hotel. <strong>~1 hour.</strong></div>
+          <div class="tl-tags"><span class="tag tag-meal">Dinner</span><span class="tag tag-tip">💡 Casual · No reservation needed</span></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="day-footer"><strong>Day 3 tip:</strong> The timing works well — entry at 11am gives a solid morning session before Mini Chef, then the full afternoon back inside LEGO House. The only thing to be strict about is leaving by <strong>4:00pm</strong> to catch the bus in time for the 5:06pm train. Everything else is relaxed. Most of the LEGO House experience is seated or standing at a build table — the main tiredness comes from the travel, not the activity itself. Bring a book or podcast for the train journeys.</div>
+  </div>
+
+
+  <!-- ═══════ DAY 4 ═══════ -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-header-left">
+        <div class="day-number">Day 4 · Saturday</div>
+        <div class="day-title">National Museum + Nørrebro + Vesterbro</div>
+        <div class="day-date">March 21, 2026</div>
+      </div>
+      <div class="day-badge badge-full">🏺 Museums & Nørrebro</div>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">9:00 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line line-meal"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🥐 Breakfast — Leisurely Start</div>
+          <div class="tl-desc">After yesterday's long LEGO day, a slower start is well-earned. Find a cozy café near CitizenM — there are several on Vesterbrogade, just 5 min from the hotel. Sit, enjoy the hygge, and head to the National Museum together when ready. <strong>~1 hour.</strong></div>
+          <div class="tl-tags"><span class="tag tag-meal">Breakfast</span><span class="tag tag-rest">Slow Morning</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">10:00 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🏺 National Museum (Nationalmuseet) — Viking Age to Modern Denmark</div>
+          <div class="tl-desc">One of the finest free museums in Scandinavia, and perfectly timed for a quiet Saturday morning before the crowds arrive. Covers 10,000 years of Danish history: the <strong>Sun Chariot</strong> (one of the world's great Bronze Age objects), Viking Age swords and runestones, Ice Age finds, Egyptian mummies, and a whole wing on Danish folk culture. Plenty of benches and seating throughout — take it at a genuinely relaxed pace, sit and read the panels, linger in the rooms you love. No closing-time pressure at all. <strong>FREE always. ~3 hours.</strong></div>
+          <div class="tl-tags"><span class="tag tag-sight">Museum · History</span><span class="tag tag-tip">💡 Always FREE · Opens 10am–5pm Tue–Sun · nationalmuseet.dk</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">1:05 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-travel"></div><div class="tl-line line-travel"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🚇 Transit to Nørrebro (~20 min)</div>
+          <div class="tl-desc">Bus 5A or 6A from Ny Vestergade/Christiansborg toward Nørreport, then bus up to Nørrebro. Use Rejseplanen for the exact stop — it's a straightforward route.</div>
+          <div class="tl-tags"><span class="tag tag-travel">Bus · ~20 min</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">1:30 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line line-meal"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🌶️ Lunch — Poulette (Møllegade 1, Nørrebro)</div>
+          <div class="tl-desc">Copenhagen's cult fried chicken sandwich spot — featured in The Bear, beloved by the city's chefs. The signature Nashville spicy fried chicken or mapo tofu sandwich on brioche. Add seasoned fries. Tiny takeaway spot with no indoor seating — once you have your order, <strong>walk 2 min to Assistens Cemetery or Blågårds Plads for plenty of benches.</strong> <strong>~40 min.</strong></div>
+          <div class="tl-warn">⚠️ Opens from 11am until sold out — on Saturdays go by 1:30pm to be safe. Spicy by default — ask for mild. No reservations. <strong>Sit-down fallback:</strong> <strong>Café Dyrehaven</strong> or <strong>Granola</strong> on Elmegade (~3 min walk) — both excellent with proper Danish lunch menus.</div>
+          <div class="tl-tags"><span class="tag tag-meal">Lunch · Poulette</span><span class="tag tag-tip">💡 ~DKK 95–130/person · Takeaway · Benches at Blågårds Plads ✓</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">2:15 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line line-meal"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🍷 Pompette Wine Bar (Møllegade 3, Nørrebro)</div>
+          <div class="tl-desc">Literally next door to Poulette — a natural and lovely segue. Pompette is one of Copenhagen's best natural wine bars: intimate, unhurried, with a thoughtfully curated list of European small-producer wines and knowledgeable staff happy to guide you through it. A perfect setting for dad to explore something new in a relaxed atmosphere. Order a couple of glasses and take your time — there's no rush. <strong>~1 hour.</strong></div>
+          <div class="tl-tags"><span class="tag tag-meal">Wine Bar · Dad's Pick</span><span class="tag tag-tip">💡 No reservation needed · Natural & European wines · Møllegade 3</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">3:15 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">⚰️ Assistens Cemetery — A Beautiful Surprise</div>
+          <div class="tl-desc">A 2-minute walk from Poulette and Pompette. Sounds morbid but Copenhageners use this as a park. Beautifully maintained, peaceful and tree-lined — Hans Christian Andersen is buried here (Section B, clearly marked), as is physicist Niels Bohr. Locals walk dogs and read on the benches. A genuinely lovely outdoor wind-down. <strong>~45 min.</strong></div>
+          <div class="tl-tags"><span class="tag tag-sight">Culture · Outdoors</span><span class="tag tag-tip">💡 Free · Open daily · Flat paths throughout ✓</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">4:05 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-travel"></div><div class="tl-line line-travel"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🚇 Transit to Vesterbro (~25 min)</div>
+          <div class="tl-desc">Bus from Nørrebro toward central Copenhagen then on to Vesterbro. Use Rejseplanen for the exact routing — the journey runs through the city center.</div>
+          <div class="tl-tags"><span class="tag tag-travel">Bus · ~25 min</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">4:30 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🌿 Frederiksberg Gardens or 🏭 Home of Carlsberg (Choose One)</div>
+          <div class="tl-desc"><strong>Option A — Frederiksberg Gardens (recommended):</strong> One of Copenhagen's most beautiful royal gardens — a sweeping Baroque landscape surrounding Frederiksberg Palace, with long tree-lined avenues, a serene canal system, a Chinese pavilion, and resident herons along the water. Completely flat, free to enter, and open until sunset. Ideal for a relaxed 1.5-hour stroll with plenty of benches and zero crowds on a Saturday afternoon. A 10-minute walk from the Meatpacking District for dinner. <strong>Free. ~1.5 hours.</strong><br><br><strong>Option B — Home of Carlsberg:</strong> The original 1847 brewery with a 3,000m² exhibition — bottle collection, draught horses, elephant gateway, beer tasting included. <strong>Note: closes at 5pm, meaning only ~30 min of visit time after transit from Nørrebro — not recommended on a Pompette day.</strong> If your parents are keen on Carlsberg, the best approach is to skip Pompette that day so you can arrive at Carlsberg by ~3:30pm and get a proper 1.5 hours. DKK 215/person — pre-book at homeofcarlsberg.com.</div>
+    
+          <div class="tl-tags"><span class="tag tag-sight">Gardens · Outdoors</span><span class="tag tag-tip">💡 Frederiksberg Gardens: Free · Open until sunset · Flat paths ✓ · Carlsberg: DKK 215 · Closes 5pm</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">7:30 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🥩 Dinner — Meatpacking District (Kødbyen), Vesterbro</div>
+          <div class="tl-desc">A 10-minute walk from Frederiksberg Gardens (or 5 min from Carlsberg if that was chosen). Copenhagen's trendiest dinner area in the former slaughterhouse buildings. <strong>Fleisch</strong> for meats and Danish-inspired dishes. <strong>Kødbyens Fiskebar</strong> for exceptional seafood (book ahead). <strong>BioMio</strong> for organic, eclectic cooking. <strong>If you visited Warpigs on Day 2, pick a different spot tonight</strong> — the neighbourhood has plenty of options. <strong>~1.5 hours.</strong></div>
+          <div class="tl-tags"><span class="tag tag-meal">Dinner</span><span class="tag tag-tip">💡 Book ahead for Fiskebar · ~DKK 250–400/person</span></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="day-footer"><strong>Day 4 tip:</strong> A nicely layered day — the National Museum in the quiet of a Saturday morning, then Poulette and Pompette back-to-back in Nørrebro (they're literally next door), a peaceful cemetery stroll, and a relaxed afternoon in Frederiksberg Gardens before dinner. Dad can pick through the wine list at Pompette at his own pace — no rush at all. If the parents do want Carlsberg, skip Pompette that day so there's enough time to arrive by ~3:30pm for a proper visit. The museum's prehistoric and Viking wings are the unmissable highlights.</div>
+  </div>
+
+
+  <!-- ═══════ DAY 5 ═══════ -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-header-left">
+        <div class="day-number">Day 5 · Sunday</div>
+        <div class="day-title">Christiansborg + Glyptotek + Mass + Farewell Dinner</div>
+        <div class="day-date">March 22, 2026</div>
+      </div>
+      <div class="day-badge badge-last">🌅 Last Full Day</div>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">9:00 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line line-meal"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">☕ Slow Breakfast — A Proper Hygge Morning</div>
+          <div class="tl-desc">No rushing today. Find a beautiful café with plenty of light — try Wulff & Konstali (brunch with a little paper order form, very Danish) or café near the lakes (Søerne) for a long, relaxed morning with pastries and good coffee. <strong>~1.5 hours.</strong></div>
+          <div class="tl-tags"><span class="tag tag-meal">Breakfast · Brunch</span><span class="tag tag-tip">💡 ~DKK 100–180/person</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">10:30 AM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🏛️ Christiansborg Palace — Tower + Parliament</div>
+          <div class="tl-desc">The seat of the Danish Parliament, Supreme Court, and Prime Minister — all in one palace. Highlights: <strong>The Tower</strong> (free! Best 360° views in Copenhagen — <strong>has a lift ✓</strong>), the Royal Ruins in the basement (foundations of the original 1167 castle), and the Royal Reception Rooms. <strong>CitizenM is only a 15–20 min walk, or one metro stop from Rådhuspladsen to Gammel Strand.</strong> <strong>~2 hours.</strong></div>
+          <div class="tl-tags"><span class="tag tag-sight">Palace</span><span class="tag tag-tip">💡 Tower: FREE · Lift available ✓ · Royal rooms: ~DKK 100 · Opens 10am Sun</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">12:30 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line line-meal"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🥗 Lunch — Café Norden (Strøget)</div>
+          <div class="tl-desc">A Copenhagen classic on the corner of Strøget and Kongens Nytorv — relaxed, airy, and great for a leisurely sit-down lunch. Good Danish-French bistro menu, nice views over the square, and genuinely comfortable for a group. Sits naturally between Christiansborg and the Glyptotek — no backtracking. <strong>~45 min.</strong></div>
+          <div class="tl-tags"><span class="tag tag-meal">Lunch</span><span class="tag tag-tip">💡 ~DKK 120–200/person · Seated ✓ · Kongens Nytorv 17</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">1:15 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🎨 Ny Carlsberg Glyptotek — FREE Sunday Entry</div>
+          <div class="tl-desc">One of Copenhagen's great surprises — and today it's completely free. An extraordinary art museum built around Carl Jacobsen's personal collection: Rodin sculptures, Gauguin and Cézanne paintings, Egyptian and Etruscan antiquities, and a stunning vaulted <strong>winter garden</strong> at its heart — warm, tropical, and filled with light. Mum can rest in the winter garden café while others explore the upper galleries at their own pace. With the full afternoon to yourselves, you can move slowly and enjoy it properly. <strong>FREE on Sundays. Closes 5pm. ~2.5 hours.</strong></div>
+          <div class="tl-warn">💡 The Glyptotek is literally a 5-minute walk from CitizenM — the easiest museum all trip to get to and from. No rushing required.</div>
+          <div class="tl-tags"><span class="tag tag-sight">Museum · Art</span><span class="tag tag-tip">💡 FREE on Sundays · Closes 5pm · Winter garden café ✓ · glyptoteket.dk</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">3:45 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-rest"></div><div class="tl-line line-rest"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🏨 Back to CitizenM — Freshen Up Before Mass</div>
+          <div class="tl-desc">The Glyptotek is a 5-minute walk from CitizenM — an easy stroll back. Quick stop at the hotel to refresh before heading to church. <strong>~30 min.</strong></div>
+          <div class="tl-tags"><span class="tag tag-rest">Rest</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">4:15 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-travel"></div><div class="tl-line line-travel"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🚌 Depart for St. Anne's Church — Amager</div>
+          <div class="tl-desc"><strong>Parents:</strong> Bus 5C from Rådhuspladsen (right outside CitizenM) toward Amager — alight at Tycho Brahes Allé, ~13 min. Short walk to Dronning Elisabeths Allé 3. Arrive by ~4:40–4:45pm. <strong>You:</strong> St. Anne's is very close to Øresundskollegiet — both are in the 2300 Amager postcode. You can walk from ØK in ~10–15 min and meet them at the church door.</div>
+          <div class="tl-tags"><span class="tag tag-travel">Bus 5C from Rådhuspladsen · ~13 min</span><span class="tag tag-travel">You: walk from ØK ~10–15 min</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">5:00 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-sight"></div><div class="tl-line line-sight"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">⛪ Sunday Mass — St. Anne's Church (Sankt Annæ Kirke)</div>
+          <div class="tl-desc">A meaningful moment to round off the trip — Sunday English Mass at this beautiful Catholic parish on Amager. St. Anne's has an active international English-speaking community and services in Danish, English and Polish. The church dates to 1903 and features an Art Nouveau interior with stained glass windows and the altar of Our Lady of Perpetual Help (1946). <strong>Service 5:00–6:00 PM.</strong></div>
+          <div class="tl-tags"><span class="tag tag-sight">Catholic Mass · English</span><span class="tag tag-tip">💡 Dronning Elisabeths Allé 3 · Free entry · Confession available 3–5pm before Mass</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">6:00 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-travel"></div><div class="tl-line line-travel"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🚌 Return to City — Hotel + Pack</div>
+          <div class="tl-desc">Bus 5C back from Tycho Brahes Allé toward Rådhuspladsen (~13 min). Back at CitizenM by ~6:20pm. Time to finish packing for tomorrow's early departure. <strong>~1 hr.</strong></div>
+          <div class="tl-tags"><span class="tag tag-travel">Bus 5C back · ~13 min</span><span class="tag tag-rest">Pack for departure</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">7:30 PM</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🎉 Farewell Dinner — Make It Special</div>
+          <div class="tl-desc">Last night together — book something lovely. Options: <strong>Krebsegaarden</strong> in Frederiksberg (a hidden gem in a garden courtyard, seasonal Danish cooking, very romantic atmosphere — locals' favourite). <strong>Salon</strong> on Kongens Nytorv for a beautiful high-end but approachable Danish dinner in a stunning historic setting. <strong>Restaurant Madklubben</strong> for excellent Danish-French cuisine at a fair price. Or go back to a place you loved this week. <strong>~2 hours.</strong></div>
+          <div class="tl-tags"><span class="tag tag-meal">Farewell Dinner</span><span class="tag tag-tip">💡 Book ahead — Sunday reservations fill up · ~DKK 300–500/person</span></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="day-footer"><strong>Day 5 tip:</strong> A lovely balanced last full day — Christiansborg's tower and ruins in the morning (outdoor views + indoor history), a relaxed lunch, then the Glyptotek's world-class collection with the whole afternoon to enjoy it without rushing. The winter garden café inside the Glyptotek is one of the most beautiful spaces in Copenhagen — a genuinely special place to end the cultural side of the trip before Mass and the farewell dinner.</div>
+  </div>
+
+
+  <!-- ═══════ DAY 6 ═══════ -->
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-header-left">
+        <div class="day-number">Day 6 · Monday</div>
+        <div class="day-title">Departure Day</div>
+        <div class="day-date">March 23, 2026</div>
+      </div>
+      <div class="day-badge badge-easy">✈️ Fly Home</div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">Morning</div>
+        <div class="tl-spine"><div class="tl-dot dot-meal"></div><div class="tl-line line-meal"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">🥐 Final Breakfast + Checkout</div>
+          <div class="tl-desc">One last Danish pastry. Allow at least 2.5 hours before flight for airport transfer (metro M2 is 15–20 min from city center, then 30–45 min check-in buffer).</div>
+          <div class="tl-tags"><span class="tag tag-meal">Breakfast</span><span class="tag tag-travel">Airport Transfer</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">TBD</div>
+        <div class="tl-spine"><div class="tl-dot dot-travel"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-title">✈️ Fly Home — Copenhagen Airport (CPH)</div>
+          <div class="tl-desc">Metro M2 from city center to Airport in ~15 min. DKK 40/person. Safe travels!</div>
+          <div class="tl-tags"><span class="tag tag-travel">Departure</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════ PRACTICAL TIPS ═══════ -->
+  <div class="tips-section">
+    <div class="tips-title">🧭 Practical Tips & Reminders</div>
+    <div class="tips-grid">
+      <div class="tip-item">
+        <h4>📍 Your Commute (ØK → CitizenM)</h4>
+        <p>Walk ~12 min to <strong>DR Byen (M1)</strong> → 3 stops to <strong>København H</strong> → 8 min walk to CitizenM. Total: ~25–30 min. For later evenings, same route back. Set a Google Maps favourite for DR Byen to make navigation easy.</p>
+      </div>
+      <div class="tip-item">
+        <h4>🦶 Mum-Friendly Access Notes</h4>
+        <p>Flat/good: Strøget, Nyhavn (use inner path), King's Garden, Kastellet, Assistens Cemetery, Frederiksberg Gardens, Christiansborg (tower has lift ✓), <strong>Round Tower (ramp only, no stairs ✓)</strong>. Manageable with breaks: Rosenborg Castle (stairs, no lift — ground floor + jewels are highlights), Church of Our Saviour tower (400 steps, rest points throughout). Cobblestones: Nyhavn quayside, old city. Recommend cushioned flat shoes with grip.</p>
+      </div>
+      <div class="tip-item">
+        <h4>🎨 Two Museum Days — Plan Ahead</h4>
+        <p><strong>Day 4 (Saturday):</strong> National Museum in the morning (10am–1pm). Always FREE. Quieter early on — aim for the Viking and Bronze Age wings first; the Sun Chariot alone is worth the trip. <strong>Day 5 (Sunday):</strong> Ny Carlsberg Glyptotek, FREE on Sundays only. Full afternoon from 1:15pm — enough time to explore properly and linger in the winter garden café. Both museums are within 10–15 minutes of CitizenM on foot.</p>
+      </div>
+      <div class="tip-item">
+        <h4>🎡 Tivoli Gardens — CLOSED</h4>
+        <p>Opens March 27, 2026. Your visit ends March 23 — four days too early. No Tivoli on this trip, unfortunately.</p>
+      </div>
+      <div class="tip-item">
+        <h4>📱 Useful Apps</h4>
+        <p>DSB (train tickets), Rejseplanen (route planning), Rejsekort (transit card), Google Maps for walking routes around Copenhagen.</p>
+      </div>
+      <div class="tip-item">
+        <h4>🚶 Getting Around</h4>
+        <p>Copenhagen is very flat and walkable. Most attractions near CitizenM (Rådhuspladsen) are under 20 min on foot. M3 ring line is the most useful for parents — it's a simple loop. From Day 4 onwards they navigate independently. Rejseplanen app handles all routing.</p>
+      </div>
+      <div class="tip-item">
+        <h4>💰 Money</h4>
+        <p>Denmark uses Danish Krone (DKK). ~DKK 7 ≈ €1. Card payments accepted almost everywhere — cash is rarely needed. Dining out is expensive; lunch menus are better value than dinners.</p>
+      </div>
+      <div class="tip-item">
+        <h4>🧱 LEGO House — All Booked ✅</h4>
+        <p>Tickets, Mini Chef, and both train journeys are confirmed. The one thing to be strict about on the day: <strong>leave LEGO House by 4:00pm</strong> to catch Bus 43 back to Vejle in time for the 5:06pm train. Set an alarm.</p>
+      </div>
+      <div class="tip-item">
+        <h4>🌶️ Poulette + 🍷 Pompette — The Møllegade Combo</h4>
+        <p>Poulette is very casual — expect to eat on a bench nearby. Goes mild if asked. No sit-down, no reservations. Go by 1:30pm on Saturdays as it sells out. <strong>Pompette</strong> is literally next door (Møllegade 3) — a relaxed natural wine bar, great for dad to browse small-producer European bottles with knowledgeable staff. No booking needed; walk in and take a seat at the bar or a table.</p>
+      </div>
+      <div class="tip-item">
+        <h4>🌧️ March Weather</h4>
+        <p>~5–9°C, rain likely. Pack waterproof layers. Canal boat tours are covered/heated. Most attractions are indoors. Sunset is around 6:15pm — plan outdoor sightseeing for the afternoon.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ BOOKINGS CHECKLIST ═══════ -->
+  <div class="tips-section" style="margin-top: 20px;">
+    <div class="tips-title">☑️ Bookings Checklist</div>
+    <p style="font-size:13px; color:var(--grey); margin-bottom:18px;">Tick these off as you confirm. Booked items are marked ✅.</p>
+    <div class="checklist">
+
+      <div class="cl-item">
+        <label class="cl-row">
+          <input type="checkbox" class="cl-check">
+          <span class="cl-box"></span>
+          <div class="cl-content">
+            <div class="cl-title">🧱 LEGO House tickets + Mini Chef restaurant ✅ BOOKED</div>
+            <div class="cl-sub">Entry slot 11:00–11:30am · Mini Chef lunch at 12:15pm · <a href="https://www.legohouse.com" target="_blank">legohouse.com</a></div>
+          </div>
+        </label>
+      </div>
+
+      <div class="cl-item">
+        <label class="cl-row">
+          <input type="checkbox" class="cl-check">
+          <span class="cl-box"></span>
+          <div class="cl-content">
+            <div class="cl-title">🚆 DSB Train — Copenhagen ↔ Vejle (Day 3, Friday 20 Mar) ✅ BOOKED</div>
+            <div class="cl-sub">Departs Copenhagen Central 7:52am · Arrives Vejle 9:52am · Return departs Vejle 5:06pm · Arrives Copenhagen ~7:06pm</div>
+          </div>
+        </label>
+      </div>
+
+      <div class="cl-item">
+        <label class="cl-row">
+          <input type="checkbox" class="cl-check">
+          <span class="cl-box"></span>
+          <div class="cl-content">
+            <div class="cl-title">🏭 Home of Carlsberg (optional — if choosing over Frederiksberg Gardens)</div>
+            <div class="cl-sub">Pre-book to guarantee entry. Closes 5pm — timing is tight if visiting Pompette same day. → <a href="https://www.homeofcarlsberg.com" target="_blank">homeofcarlsberg.com</a></div>
+          </div>
+        </label>
+      </div>
+
+      <div class="cl-item">
+        <label class="cl-row">
+          <input type="checkbox" class="cl-check">
+          <span class="cl-box"></span>
+          <div class="cl-content">
+            <div class="cl-title">🎉 Farewell dinner reservation — Sunday 22 Mar</div>
+            <div class="cl-sub">Krebsegaarden, Salon, or Restaurant Madklubben. Sunday evenings fill up — book ahead.</div>
+          </div>
+        </label>
+      </div>
+
+      <div class="cl-item">
+        <label class="cl-row">
+          <input type="checkbox" class="cl-check">
+          <span class="cl-box"></span>
+          <div class="cl-content">
+            <div class="cl-title">⛵ Canal Boat Tour (Day 1)</div>
+            <div class="cl-sub">Can book at Nyhavn dock on the day, but online guarantees a spot. → <a href="https://www.stromma.com" target="_blank">stromma.com</a> or <a href="https://www.netto-baadene.dk" target="_blank">netto-baadene.dk</a></div>
+          </div>
+        </label>
+      </div>
+
+      <div class="cl-item">
+        <label class="cl-row">
+          <input type="checkbox" class="cl-check">
+          <span class="cl-box"></span>
+          <div class="cl-content">
+            <div class="cl-title">🐟 Kødbyens Fiskebar — if choosing for Day 4 dinner</div>
+            <div class="cl-sub">Popular seafood spot in the Meatpacking District. Book in advance for Saturday evening.</div>
+          </div>
+        </label>
+      </div>
+
+      <div class="cl-item">
+        <label class="cl-row">
+          <input type="checkbox" class="cl-check">
+          <span class="cl-box"></span>
+          <div class="cl-content">
+            <div class="cl-title">📱 Install apps before arrival</div>
+            <div class="cl-sub">Rejseplanen (routes), DOT Mobilbillet (metro tickets), DSB (trains), Google Maps. Set up at Day 1 breakfast.</div>
+          </div>
+        </label>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /content -->
+
+<style>
+  .checklist { display: flex; flex-direction: column; gap: 8px; }
+  .cl-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0;
+    overflow: hidden;
+    transition: opacity 0.3s;
+  }
+  .cl-item.cl-urgent { border-left: 3px solid var(--red); }
+  .cl-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 13px 16px;
+    cursor: pointer;
+    width: 100%;
+  }
+  .cl-check { display: none; }
+  .cl-box {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    margin-top: 1px;
+    transition: background 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .cl-check:checked ~ .cl-box {
+    background: var(--green);
+    border-color: var(--green);
+  }
+  .cl-check:checked ~ .cl-box::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 9px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translate(-1px, -1px);
+  }
+  .cl-check:checked ~ .cl-content .cl-title {
+    text-decoration: line-through;
+    color: var(--grey);
+  }
+  .cl-content { flex: 1; }
+  .cl-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 3px;
+    transition: color 0.2s, text-decoration 0.2s;
+  }
+  .cl-sub {
+    font-size: 12px;
+    color: var(--grey);
+    line-height: 1.5;
+  }
+  .cl-sub a { color: var(--blue); text-decoration: none; }
+  .cl-sub a:hover { text-decoration: underline; }
+  .cl-item.cl-urgent .cl-title { color: var(--red); }
+  .cl-item.cl-urgent .cl-check:checked ~ .cl-content .cl-title { color: var(--grey); }
+</style>
+
+</body>
+</html>
